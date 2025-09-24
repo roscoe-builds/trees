@@ -1,0 +1,416 @@
+/* tree and node styling */
+
+/* 
+LINKS: #160306
+ROOT: c
+BRANCHES: #7e3c35
+LEAVES: #7ebd78
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* HELPER CLASSES */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HELPER CLASSES */
+
+html {
+  font-size: 10px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  font-family: monospace;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  background: #ccc;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid black;
+}
+
+.nav-link {
+  font-family: monospace;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hero-title {
+  display: flex;
+  width: 80%;
+  align-self: center;
+  text-align: center;
+  font-size: clamp(3.6rem, 3vw, 8.4rem);
+  font-weight: bold;
+  margin: 4rem 0rem 4rem 0rem;
+}
+
+.logo {
+  text-decoration: none;
+  color: black;
+  font-size: 4.8rem;
+  font-weight: 700;
+  margin-left: 4.8rem;
+  margin-right: 10rem;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.about {
+  display: flex;
+  justify-self: center;
+  width: 90%;
+  margin-left: 10%;
+}
+
+.about-p {
+  margin: 15% 5rem 5% 0rem;
+  font-size: 1.6rem;
+}
+
+.about-p-2 {
+  margin: 25% 5rem 5% 0rem;
+  font-size: 1.6rem;
+}
+
+.about-header {
+  margin: 5% 5rem 5rem 0rem;
+  text-transform: uppercase;
+  font-size: clamp(8rem, 2vw, 12rem);
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-p {
+    margin: 10% 5rem 2% 0rem;
+  }
+
+  .about-p-2 {
+    margin: 10% 5rem 2% 0rem;
+  }
+
+  .about-header {
+    margin: 5% 5rem 0rem 0rem;
+  }
+}
+
+#tree {
+  display: flex;
+  width: 80%;
+  justify-self: center;
+  align-self: center;
+  background-color: #f5f0e1;
+  margin-bottom: 10rem;
+  position: relative;
+}
+
+#node-menu {
+  position: absolute;
+  display: none;
+  /* display: block; */
+  justify-content: center;
+  gap: 2rem;
+  background-color: #ddd;
+  padding: 1.5rem 1.5rem;
+  width: 12rem;
+  pointer-events: auto;
+  border-radius: 10%;
+}
+
+#node-menu,
+#node-menu * {
+  outline: none !important;
+  box-shadow: none !important;
+  user-select: none; /* disable text selection */
+}
+
+#node-menu button,
+#node-menu .node-menu-item,
+#node-menu .edit-menu-item,
+#node-menu .add-menu-item,
+#node-menu .delete-menu-item,
+#node-menu .color-menu-item {
+  border: none; /* remove any border */
+  background: transparent; /* remove button default bg */
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+#node-menu button:focus,
+#node-menu .node-menu-item:focus,
+#node-menu .edit-menu-item:focus,
+#node-menu .add-menu-item:focus,
+#node-menu .delete-menu-item:focus,
+#node-menu .color-menu-item:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#node-menu button:active,
+#node-menu .node-menu-item:active,
+#node-menu .edit-menu-item:active,
+#node-menu .add-menu-item:active,
+#node-menu .delete-menu-item:active,
+#node-menu .color-menu-item:active {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.node-menu-item {
+  width: 2rem;
+  height: 2rem;
+}
+
+.edit-menu-item {
+}
+
+.add-menu-item {
+}
+
+.delete-menu-item {
+}
+
+#color-menu {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  transform-origin: bottom;
+  height: 14rem;
+  /* display: block; */
+  justify-content: center;
+  gap: 1rem;
+  background-color: #ddd;
+  padding: 1.5rem 1.5rem;
+  pointer-events: auto;
+  border-radius: 10%;
+}
+
+.color-menu-button {
+  width: 2rem;
+  height: 2rem;
+}
+
+.color-menu-red:hover {
+  background-color: #ccc;
+}
+
+.color-menu-orange:hover {
+  background-color: #ccc;
+}
+
+.color-menu-yellow:hover {
+  background-color: #ccc;
+}
+
+.color-menu-green:hover {
+  background-color: #ccc;
+}
+
+.color-menu-brown:hover {
+  background-color: #ccc;
+}
+.notes {
+  font-family: monospace;
+  width: 100px;
+  background-color: #aaa;
+  display: none;
+}
+
+#notes-form {
+  padding: 50px 50px;
+  position: absolute;
+  /* display: flex;
+  display: none;
+  justify-content: center;
+  gap: 3rem; */
+  background-color: #ccc;
+  padding: 1.5rem 3rem;
+  width: 14rem;
+  border-radius: 10%;
+  display: none;
+}
+
+#new-tree {
+  position: relative;
+}
+
+#new-tree-button {
+  position: absolute;
+  bottom: 14rem;
+  left: 45%;
+  transform: translateX(-45%);
+  margin-right: 4rem;
+  padding: 20px 40px;
+  width: 10%;
+  font-size: 16px;
+  background-color: #310910;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+#new-tree-button:hover {
+  background-color: #7e3c35;
+}
+
+#new-tree-label {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  position: absolute;
+  left: 44%;
+  transform: translateX(-42%);
+  font-size: 14;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: monospace;
+  text-align: center;
+  bottom: 20rem;
+}
+
+.new-tree-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+#notepad {
+  position: relative;
+}
+
+#notepad-button {
+  position: absolute;
+  margin-left: 4rem;
+  bottom: 14rem;
+  left: 55%;
+  width: 10%;
+  transform: translateX(-55%);
+  padding: 20px 40px;
+  font-size: 16px;
+  background-color: #ff9d00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+/* #new-tree-button {
+  position: absolute;
+  bottom: 14rem;
+  left: 45%;
+  transform: translateX(-45%);
+  margin-right: 4rem;
+  padding: 20px 40px;
+  width: 10%;
+  font-size: 16px;
+  background-color: #310910;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+} */
+
+#notepad-button:hover {
+  background-color: #ffb947;
+}
+
+.notepad-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#notepad-label {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  position: absolute;
+  text-align: center;
+  left: 58%;
+  transform: translateX(-40%);
+  font-size: 14;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: monospace;
+  text-align: center;
+  bottom: 20rem;
+}
+
+/* #new-tree-label {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  position: absolute;
+  left: 45%;
+  transform: translateX(-45%);
+  font-size: 14;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: monospace;
+  text-align: center;
+  bottom: 20rem;
+} */
+#notes-form {
+  display: none; /* hidden by default */
+  position: absolute;
+  top: 1000px; /* default top position */
+  left: 100px; /* default left position */
+  width: 250px;
+  min-height: 200px;
+  min-width: 300px;
+  max-width: 800px;
+  background-color: #ffefd6;
+  border-radius: 10px;
+  resize: both;
+  overflow: hidden;
+  z-index: 9999;
+  cursor: move;
+}
+
+#editor {
+  background-color: #ffd899;
+  border-radius: 5px;
+  min-height: 150px;
+  max-height: 90%;
+  font-family: monospace;
+
+  /* style.css or in <style> tags */
+}
+
+.ql-toolbar {
+  background-color: #ff9d00;
+  border-radius: 10px 10px 0 0;
+  font-family: monospace;
+}
+
+.ql-toolbar button {
+  color: #f5f0e1;
+}
+
+.ql-formats {
+  color: white;
+}

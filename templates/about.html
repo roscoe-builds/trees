@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<div class="about">
+  <h3 class="about-header">Why Trees?</h3>
+  <p class="about-p">
+    Trees is a simple, minimal project visualization tool for those who want to
+    look past task-lists and linear text bullet to-dos and move into
+    interactive, visual ways to look at their work. Based on an endless 2d
+    canvas and circular nodes, which represent tasks, users get a unique way to
+    see project hierarchy and priority. And with color-changing functionality
+    for each node, users can easily switch task status. A simple monospace,
+    retro notepad anchors the tool, providing just enough functionality to write
+    notes on tasks, without being so overwhelming it gets in the way of your
+    workflow.
+  </p>
+  <p class="about-p-2">
+    This project was made with mostly node.js, specifically with d3.js library
+    for canvas functionality, and tree formation. I would confidently say this
+    is my first decent-sized project that got me more familiar with js, its
+    capabilities and wrinkles. For the backend, I used json and flask to
+    generate unique user ids and cookie-style saving progress, rather than
+    spending unnecessary time on user accounts setup - for such a simple tool I
+    wanted things to be as easily accessible as possible. HTML and CSS here
+    simply to keep the page up and running, I wanted this to be as functional as
+    possible and not a project to show off my UI aesthetic skills.
+  </p>
+</div>
+{% endblock %}
